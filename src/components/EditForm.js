@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from 'react-redux'
+import { updateHobbit } from '../actions/hobbitActions'
 
 class EditForm extends React.Component {
 
@@ -16,22 +18,25 @@ class EditForm extends React.Component {
   }
 
   componentDidUpdate (prevState, prevProps) {
-    // if (prevProps.id !== this.props.selectedHobbit.id) {
-    //   this.setState({
-    //     id: this.props.selectedHobbit.id,
-    //     name: this.props.selectedHobbit.name,
-    //     title: this.props.selectedHobbit.title,
-    //     key_skill: this.props.selectedHobbit.key_skill
-    //   })
-    // }
+    if (prevProps.id !== this.props.selectedHobbit.id) {
+      this.setState({
+        id: this.props.selectedHobbit.id,
+        name: this.props.selectedHobbit.name,
+        title: this.props.selectedHobbit.title,
+        key_skill: this.props.selectedHobbit.key_skill
+      })
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.editHobbit(this.state)
+
   }
 
 
   render() {
+    // console.log(this.state);
     return (
       <div style={{ textAlign: "center" }}>
         <div> </div>
@@ -52,5 +57,17 @@ class EditForm extends React.Component {
   }
 }
 
+const mapStateToProps = ({selectedHobbit}) => {
+  return {
+    selectedHobbit: selectedHobbit
+  }
+}
 
-export default EditForm
+const mapDispatchToProps = (dispatch) => {
+  return {
+    editHobbit: (hobbit) => dispatch(updateHobbit(hobbit)),
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditForm)
