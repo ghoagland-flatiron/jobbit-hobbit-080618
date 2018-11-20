@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import Hog from './Hog'
 import HogEditForm from './HogEditForm'
 
-import hogs from '../data/porkers_data'
+// import hogs from '../data/porkers_data'
 
 class HogContainer extends Component {
   render() {
-    const hogsWithJogs = hogs.map(hog => <Hog key={hog.name} hog={hog} />)
+    const hogsWithJogs = this.props.hogs.map(hog => <Hog key={hog.name} hog={hog} />)
     return (
       <div>
         <div className="App-logo">Joggit Hoggit</div>
@@ -20,4 +20,11 @@ class HogContainer extends Component {
   }
 }
 
-export default HogContainer
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    hogs: state.hogs
+  }
+}
+
+export default connect(mapStateToProps)(HogContainer)

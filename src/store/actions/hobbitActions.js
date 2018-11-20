@@ -1,19 +1,15 @@
+import { update } from './adapter'
+
 /* ---------- ACTION CREATORS ------------- */
 const editHobbit = (hobbit) => ({ type: 'EDIT_HOBBIT', payload: hobbit})
 const getHobbits = (hobbits) => ({ type: 'GET_HOBBITS', payload: hobbits })
+export const selectHobbit = (hobbit) => ({type: 'SELECT_HOBBIT', payload: hobbit})
+
 
 /* ---------- THUNK CREATORS ------------- */
 export const updateHobbit = (hobbit) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/hobbits/${hobbit.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(hobbit)
-    })
-    .then(r => r.json())
+    return update(hobbit)
     .then((res) => dispatch(editHobbit(res)))
     .catch(console.error)
   }

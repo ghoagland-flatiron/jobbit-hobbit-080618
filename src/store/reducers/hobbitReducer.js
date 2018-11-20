@@ -2,12 +2,12 @@
 
 const initialState = {
   hobbits: [],
-  selectedHobbit: {}
+  selectedHobbit: {},
 }
 
 
-const reducer = (state = initialState, action) => {
-  console.log(state, action)
+const hobbitReducer = (state = initialState, action) => {
+  console.log('IN HOBBIT REDUCER')
   switch (action.type) {
     case("SELECT_HOBBIT"): {
       return {...state, selectedHobbit: action.payload}
@@ -32,4 +32,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+export default hobbitReducer

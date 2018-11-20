@@ -2,14 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
+import store from './store'
 
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+
 import { Provider } from 'react-redux'
-import hobbitReducer from './reducers/hobbitReducer'
 
-// const store = createStore(hobbitReducer)
-const store = createStore(hobbitReducer, applyMiddleware(thunk))
 
 ReactDOM.render(<Provider store={store}>
   <App />

@@ -2,6 +2,8 @@ import React from "react";
 
 import { connect } from 'react-redux'
 
+import { selectHobbit } from '../store/actions/hobbitActions'
+
 const Hobbit = props => {
   console.log(props)
   const { hobbit, selected, selectHobbit } = props
@@ -22,11 +24,11 @@ const Hobbit = props => {
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(ownProps)
-  return { selected: ownProps.hobbit.id === state.selectedHobbit.id }
+  return { selected: ownProps.hobbit.id === state.hobbits.selectedHobbit.id }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { selectHobbit: (hobbit) => dispatch({type: 'SELECT_HOBBIT', payload: hobbit}) }
+  return { selectHobbit: (hobbit) => dispatch(selectHobbit(hobbit)) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hobbit)

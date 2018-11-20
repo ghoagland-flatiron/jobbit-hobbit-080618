@@ -4,7 +4,7 @@ import HobbitEditForm from './HobbitEditForm';
 
 import { connect } from 'react-redux'
 
-import { loadHobbits } from '../actions/hobbitActions'
+import { loadHobbits } from '../store'
 
 class HobbitContainer extends React.Component {
 
@@ -30,7 +30,7 @@ class HobbitContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    hobbits: state.hobbits
+    hobbits: state.hobbits.hobbits
   }
 }
 
