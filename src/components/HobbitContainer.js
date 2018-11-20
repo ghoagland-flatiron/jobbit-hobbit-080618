@@ -4,7 +4,13 @@ import EditForm from './EditForm';
 
 import { connect } from 'react-redux'
 
+import { loadHobbits } from '../actions/hobbitActions'
+
 class HobbitContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.loadHobbits()
+  }
 
   render() {
     const hobsWithJobs = this.props.hobbits.map(hobbit => {
@@ -28,5 +34,11 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadHobbits: () => dispatch(loadHobbits())
+  }
+}
 
-export default connect(mapStateToProps)(HobbitContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(HobbitContainer)
