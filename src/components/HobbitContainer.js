@@ -1,6 +1,6 @@
 import React from 'react';
 import Hobbit from './Hobbit';
-import EditForm from './EditForm';
+import HobbitEditForm from './HobbitEditForm';
 
 import { connect } from 'react-redux'
 
@@ -18,8 +18,8 @@ class HobbitContainer extends React.Component {
     });
     return (
       <div>
-        <div className="App-logo">Jobbit</div>
-        <EditForm />
+        <div className="App-logo">Jobbit Hobbit</div>
+        <HobbitEditForm />
         <div className="hobbitsContainer">
           {hobsWithJobs}
         </div>
