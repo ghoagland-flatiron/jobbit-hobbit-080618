@@ -3,7 +3,7 @@ export const selectHobbit = (hobbit) => ({ type: 'SELECT_HOBBIT', payload: hobbi
 
 export const editHobbit = (hobbit) => ({ type: 'EDIT_HOBBIT', payload: hobbit })
 
-
+/*----------------------THUNK CREATORS-----------------------*/
 export const updateHobbit = (hobbit, gooble, hello) => {
   return (dispatch) => {
     return fetch(`http://localhost:3000/hobbits/${hobbit.id}`, {
