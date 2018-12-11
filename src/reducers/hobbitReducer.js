@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
     case ('EDIT_HOBBIT'): {
       const newHobbits = state.hobbits.map(hob => {
         if (hob.id === action.payload.id) {
-          return action.payload
+          return { ...hob, ...action.payload }
         }
         return hob
       })
