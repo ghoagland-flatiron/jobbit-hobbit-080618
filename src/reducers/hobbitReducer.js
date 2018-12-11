@@ -17,9 +17,7 @@ const reducer = (state = initialState, action) => {
         if (hob.id === action.payload.id) {
           return action.payload
         }
-        else {
-          return hob
-        }
+        return hob
       })
 
       return { ...state, hobbits: newHobbits }
