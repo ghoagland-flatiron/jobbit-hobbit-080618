@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { updateHobbit } from '../actions/hobbitActions'
+import { updateHobbit } from '../store'
 
 class EditForm extends React.Component {
 
@@ -66,12 +66,12 @@ class EditForm extends React.Component {
   }
 }
 
-const mapStateToProps = ({ selectedHobbit }) => ({ selectedHobbit })
-// const mapStateToProps = (state) => {
-//   return {
-//     selectedHobbit: state.selectedHobbit
-//   }
-// }
+// const mapStateToProps = ({ selectedHobbit }) => ({ selectedHobbit })
+const mapStateToProps = (state) => {
+  return {
+    selectedHobbit: state.hobbitInfo.selectedHobbit
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {

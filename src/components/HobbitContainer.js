@@ -1,10 +1,15 @@
 import React from 'react';
 import Hobbit from './Hobbit';
 import HobbitEditForm from './HobbitEditForm';
+import { loadHobbits } from '../store'
 
 import { connect } from 'react-redux'
 
 class HobbitContainer extends React.Component {
+
+  componentDidMount() {
+    this.props.loadHobbits()
+  }
 
   render() {
     const hobsWithJobs = this.props.hobbits.map(hobbit => {
@@ -23,9 +28,16 @@ class HobbitContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    hobbits: state.hobbits
+    hobbits: state.hobbitInfo.hobbits
   }
 }
 
-export default connect(mapStateToProps)(HobbitContainer)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadHobbits: () => dispatch(loadHobbits())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HobbitContainer)
