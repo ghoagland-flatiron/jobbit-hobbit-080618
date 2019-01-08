@@ -4,6 +4,7 @@ import EditForm from './EditForm';
 
 import { connect } from 'react-redux'
 
+
 class HobbitContainer extends React.Component {
 
   render() {
@@ -23,6 +24,7 @@ class HobbitContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     hobbits: state.hobbits
   }

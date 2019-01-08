@@ -1,15 +1,32 @@
 import hobbits from '../data/hobbit_data'
 
 const initialState = {
-  hobbits: hobbits
+  hobbits: hobbits,
+  selectedHobbit: {}
 }
 
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
+  console.log('STATE: ', state, 'ACTION: ', action);
 
-  default:
-    return state
+  switch (action.type) {
+    case 'SELECT_HOBBIT': {
+      return { ...state, selectedHobbit: action.payload }
+    }
+
+    case 'EDIT_HOBBIT': {
+      const newHobbits = state.hobbits.map(hob => {
+        if (hob.id === action.payload.id) {
+          return action.payload
+        }
+        return hob
+      })
+
+      return { ...state, hobbits: newHobbits}
+    }
+
+    default:
+      return state
   }
 }
 
