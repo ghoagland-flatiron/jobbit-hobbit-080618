@@ -1,13 +1,13 @@
-import hobbits from '../data/hobbit_data'
+// import hobbits from '../data/hobbit_data'
 
 const initialState = {
-  hobbits: hobbits,
+  hobbits: [],
   selectedHobbit: {}
 }
 
 
 const reducer = (state = initialState, action) => {
-  console.log('STATE: ', state, 'ACTION: ', action);
+  // console.log('STATE: ', state, 'ACTION: ', action);
 
   switch (action.type) {
     case 'SELECT_HOBBIT': {
@@ -23,6 +23,10 @@ const reducer = (state = initialState, action) => {
       })
 
       return { ...state, hobbits: newHobbits}
+    }
+
+    case 'GET_HOBBITS': {
+      return { ...state, hobbits: action.payload }
     }
 
     default:

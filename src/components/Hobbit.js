@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from 'react-redux'
-import { selectHobbit } from '../hobbitActions'
+import { selectHobbit } from '../store'
 
 const Hobbit = props => {
   const { hobbit, selectHobbit, selected } = props
@@ -25,7 +25,7 @@ const Hobbit = props => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    selected: state.selectedHobbit.id === ownProps.hobbit.id
+    selected: state.hobbitInfo.selectedHobbit.id === ownProps.hobbit.id
   }
 }
 

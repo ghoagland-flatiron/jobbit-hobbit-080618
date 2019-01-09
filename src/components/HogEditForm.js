@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { patchHobbit } from '../hobbitActions'
+// import { patchHobbit } from '../hobbitActions'
 
 class HogEditForm extends React.Component {
 
