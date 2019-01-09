@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from 'react-redux'
-import { selectHobbit } from '../actions'
+import { selectHobbit } from '../hobbitActions'
 
 const Hobbit = props => {
   const { hobbit, selectHobbit, selected } = props

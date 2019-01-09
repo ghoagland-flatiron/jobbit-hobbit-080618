@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from 'react-redux'
-import { patchHobbit } from '../actions'
+import { patchHobbit } from '../hobbitActions'
 
 
 class EditForm extends React.Component {
