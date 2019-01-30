@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux'
 // import { editHobbit } from '../actions/hobbitActions'
 import { patchHobbit } from '../thunk/hobbitThunks'
@@ -51,7 +51,7 @@ class EditForm extends React.Component {
   render() {
     // console.log(this.props.selectedHobbit);
     return (
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: 'center' }}>
         <div> </div>
         <form onSubmit={this.handleSubmit}>
           <h5> Name: {this.state.name} </h5>
@@ -71,7 +71,7 @@ class EditForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('here');
+  // console.log('here');
   return {
     selectedHobbit: state.selectedHobbit
   }
