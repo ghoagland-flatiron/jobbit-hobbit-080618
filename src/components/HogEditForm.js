@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux'
 import { editHobbit } from '../hobbitActions'
 
@@ -38,7 +38,7 @@ class HogEditForm extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: 'center' }}>
         <div> </div>
         <form onSubmit={this.handleSubmit}>
           <h5> Name: {this.state.name} </h5>

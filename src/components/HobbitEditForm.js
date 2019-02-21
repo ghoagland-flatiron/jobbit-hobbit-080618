@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import { connect } from 'react-redux'
 import { patchHobbit } from '../hobbitThunks'
@@ -34,7 +34,7 @@ class EditForm extends React.Component {
 
   render() {
     return (
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: 'center' }}>
         <div> </div>
         <form onSubmit={this.handleSubmit}>
           <h5> Name: {this.state.name} </h5>
