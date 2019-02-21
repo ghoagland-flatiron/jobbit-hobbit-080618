@@ -4,7 +4,7 @@ import { editHobbit, loadHobbits } from './hobbitActions'
 /* ------------- THUNK CREATORS --------------- */
 
 export const patchHobbit = (hob) => {
-  return function thunk (dispatch){
+  return function thunk (dispatch) {
     return fetch(`http://localhost:3000/hobbits/${hob.id}`, {
       method: 'PATCH',
       headers: {
