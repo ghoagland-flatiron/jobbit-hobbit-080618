@@ -1,12 +1,13 @@
 import React from "react";
-
+import { selectHobbit } from "../actions/hobbitActions"
 import { connect } from 'react-redux'
 
 const Hobbit = props => {
-  const { hobbit } = props
-  const selected = false
+  const { hobbit, selectHobbit, selected } = props
+  // const selected = hobbit.id === selectedHobbit.id
+  // console.log("RENDERED A HOBBIT", hobbit);
   return (
-    <div className='card' style={selected ? {'borderColor':'cyan'} : {'borderColor':'red'} } onClick={() => console.log(hobbit)}>
+    <div className='card' style={selected ? {'borderColor':'cyan'} : {'borderColor':'red'} } onClick={() => selectHobbit(hobbit)}>
       <img alt={hobbit.name} src={hobbit.image_url} />
       <h3> Name: {hobbit.name} </h3>
       <h3> Title: {hobbit.title} </h3>
@@ -20,5 +21,17 @@ const Hobbit = props => {
 };
 
 
+const mapStateToProps = (state, ownProps) => {
+  // console.log("STATE", state, "OWNPROPS: ", ownProps);
+  return {
+    selected: ownProps.hobbit.id === state.selectedHobbit.id
+  }
+}
 
-export default Hobbit
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectHobbit: (hob) => dispatch(selectHobbit(hob))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hobbit)
