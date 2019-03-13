@@ -24,7 +24,7 @@ const Hobbit = props => {
 const mapStateToProps = (state, ownProps) => {
   // console.log("STATE", state, "OWNPROPS: ", ownProps);
   return {
-    selected: ownProps.hobbit.id === state.selectedHobbit.id
+    selected: ownProps.hobbit.id === state.hobbitInfo.selectedHobbit.id
   }
 }
 

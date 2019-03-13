@@ -1,7 +1,9 @@
 
 export const selectHobbit = (hob) => ({ type: "SELECT_HOBBIT", payload: hob })
 
-export const editHobbit = (hobObj) => ({ type: "EDIT_HOBBIT", payload: hobObj })
+const editHobbit = (hobObj) => ({ type: "EDIT_HOBBIT", payload: hobObj })
+
+const loadHobbits = (hobs) => ({ type: "LOAD_HOBBITS", payload: hobs })
 
 export const updateHobbit = (hob) => {
   return (dispatch) => {
@@ -18,3 +20,11 @@ export const updateHobbit = (hob) => {
       .catch(console.error)
   }
 }
+
+
+export const getHobbits = () => (dispatch =>  {
+  return fetch('http://localhost:3000/hobbits')
+    .then(r => r.json())
+    .then(res => dispatch(loadHobbits(res)))
+    .catch(console.error)
+})
