@@ -6,7 +6,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-  console.log('STATE: ', state, 'ACTION: ', action);
+  console.log('HOBBIT STATE: ', state, 'ACTION: ', action);
   switch (action.type) {
 
     case ('LOAD_HOBBITS'): {

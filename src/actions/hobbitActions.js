@@ -27,5 +27,5 @@ export const updateHobbit = (hobbit) => {
 export const getHobbits = () => (dispatch) => {
   return fetch('http://localhost:3001/hobbits')
     .then(r => r.json())
-    .then(res => console.log(res) || dispatch(loadHobbits(res)))
+    .then(res => dispatch(loadHobbits(res)))
 }

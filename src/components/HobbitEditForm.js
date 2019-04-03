@@ -71,7 +71,7 @@ class EditForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({ selectedHobbit: state.selectedHobbit })
+const mapStateToProps = (state) => ({ selectedHobbit: state.hobbitInfo.selectedHobbit })
 const mapDispatchToProps = dispatch => ({
   updateHobbit: (hobbit) => dispatch(updateHobbit(hobbit))
 })
