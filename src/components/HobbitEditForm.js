@@ -69,7 +69,7 @@ class EditForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  selectedHobbit: state.selectedHobbit
+  selectedHobbit: state.hobbitInfo.selectedHobbit
 })
 
 

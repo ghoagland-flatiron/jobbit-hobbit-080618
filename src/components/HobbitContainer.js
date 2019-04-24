@@ -29,7 +29,7 @@ class HobbitContainer extends React.Component {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    hobbits: state.hobbits
+    hobbits: state.hobbitInfo.hobbits
   }
 }
 

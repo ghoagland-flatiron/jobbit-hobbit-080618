@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { deleteHog } from '../actions/hogActions'
 
 class HogCard extends Component {
 
@@ -16,7 +18,7 @@ class HogCard extends Component {
   }
 
   render() {
-    const { name, specialty, greased } = this.props.hog
+    const { id, name, specialty, greased } = this.props.hog
     const medal = this.props.hog['highest medal achieved']
     const weightRatio = this.props.hog['weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water']
 
@@ -30,9 +32,11 @@ class HogCard extends Component {
     )
 
     return (
-      <div onClick={this.clickHandler}>
+      <div>
         <img alt={name} src={`./hog-imgs/${snakeCase(name)}.jpg`}/>
         <h2>{name}</h2>
+        <button onClick={() => this.props.deleteHog(id)}>Banish this hog</button>
+        <br />
         {this.state.clicked ? hogData : 'Click for more info!'}
       </div>
     )
@@ -42,4 +46,7 @@ class HogCard extends Component {
 function snakeCase(str) {
   return str.toLowerCase().split(' ').join('_')
 }
-export default HogCard
+
+const mapDispatchToProps = { deleteHog }
+
+export default connect(null, mapDispatchToProps)(HogCard)
