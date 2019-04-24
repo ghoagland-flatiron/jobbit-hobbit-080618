@@ -1,11 +1,11 @@
 
- /* ---------- ACTION CREATORS -------------------*/
+/* ---------- ACTION CREATORS -------------------*/
 export const selectHobbit = (hobbit) => ({ type: 'SELECT_HOBBIT', payload: hobbit })
 const editHobbit = (hobbit) => ({ type: 'EDIT_HOBBIT', payload: hobbit })
 const loadHobbits = (hobbits) => ({ type: 'LOAD_HOBBITS', payload: hobbits })
 
 
- /* ---------- THUNK CREATORS -------------------*/
+/* ---------- THUNK CREATORS -------------------*/
 
 export const patchHobbit = (hobbit) => {
   return (dispatch) => {

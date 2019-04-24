@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import { connect } from 'react-redux'
 
@@ -6,7 +6,7 @@ import { selectHobbit } from '../actions/hobbitActions'
 
 const Hobbit = props => {
   const { hobbit, selectHobbit, selected } = props
-  console.log('render', hobbit)
+  // console.log('render', hobbit)
   // const selected = selectedHobbit.id === hobbit.id
   return (
     <div className='card' style={selected ? {'borderColor':'cyan'} : {'borderColor':'red'} } onClick={() => selectHobbit(hobbit)}>
