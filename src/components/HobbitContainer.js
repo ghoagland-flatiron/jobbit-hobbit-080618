@@ -23,6 +23,7 @@ class HobbitContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log('CURRENT STATE: ', state)
   return {
     hobbits: state.hobbits
   }

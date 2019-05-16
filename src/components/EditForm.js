@@ -1,4 +1,8 @@
-import React from "react";
+import React from 'react';
+
+import { connect } from 'react-redux'
+
+import { patchHobbit } from '../actions/hobbitActions'
 
 class EditForm extends React.Component {
 
@@ -15,20 +19,33 @@ class EditForm extends React.Component {
     })
   }
 
-  componentDidUpdate (prevState, prevProps) {
-    // if (prevProps.id !== this.props.selectedHobbit.id) {
-    //   this.setState({
-    //     id: this.props.selectedHobbit.id,
-    //     name: this.props.selectedHobbit.name,
-    //     title: this.props.selectedHobbit.title,
-    //     key_skill: this.props.selectedHobbit.key_skill
-    //   })
-    // }
+  componentDidUpdate (prevProps, prevState) {
+    if (prevState.id !== this.props.selectedHobbit.id) {
+      this.setState({
+        id: this.props.selectedHobbit.id,
+        name: this.props.selectedHobbit.name,
+        title: this.props.selectedHobbit.title,
+        key_skill: this.props.selectedHobbit.key_skill
+      })
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    // this.props.editHobbit(this.state)
+    this.props.patchHobbit(this.state)
   }
+
+  // patchHobbit = () => {
+  //   return fetch(`http://localhost:3000/hobbits/${this.state.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     },
+  //     body: JSON.stringify(this.state)
+  //   })
+  // }
 
 
   render() {
@@ -52,5 +69,17 @@ class EditForm extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    selectedHobbit: state.selectedHobbit
+  }
+}
 
-export default EditForm
+const mapDispatchToProps = (dispatch) => {
+  return {
+    patchHobbit: (hobObj) => dispatch(patchHobbit(hobObj))
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditForm)
