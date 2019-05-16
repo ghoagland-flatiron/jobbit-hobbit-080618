@@ -8,8 +8,8 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import hobbitReducer from './reducers/hobbitReducer'
 
-const store = createStore(hobbitReducer)
-// const store = createStore(hobbitReducer, applyMiddleware(thunk))
+// const store = createStore(hobbitReducer)
+const store = createStore(hobbitReducer, applyMiddleware(thunk))
 
 ReactDOM.render(<Provider store={store}>
   <App />

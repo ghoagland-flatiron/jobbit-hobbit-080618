@@ -1,7 +1,7 @@
-import hobbits from '../data/hobbit_data'
+// import hobbits from '../data/hobbit_data'
 
 const initialState = {
-  hobbits: hobbits,
+  hobbits: [],
   selectedHobbit: {}
 }
 
@@ -25,6 +25,10 @@ const reducer = (state = initialState, action) => {
       })
 
       return { ...state, hobbits: newHobbits }
+    }
+
+    case ('LOAD_HOBBITS'): {
+      return { ...state, hobbits: action.payload }
     }
 
     default:
